@@ -5,6 +5,7 @@ const cors = require('cors')
 const WSserver = require('express-ws')(app)
 const ChatController = require('./ChatController')
 const aWss = WSserver.getWss()
+const authRouter = require('./authRouter.js')
 
 const DB_URL = "mongodb+srv://user:user@cluster0.tpt6jpb.mongodb.net/?retryWrites=true&w=majority";
 mongoose.set('strictQuery', true);
@@ -12,10 +13,12 @@ const PORT = 5000;
 
 app.use(express.json())
 app.use(cors())
+app.use("/auth", authRouter)
 
 async function startApp() {
     try {
-        app.ws('/', (ws, req) =>{
+        await mongoose.connect(DB_URL);
+        app.ws('/ws', (ws, req) =>{
             ws.on('message', (msg)=>{
                 let readyMessage = JSON.parse(msg)
 
@@ -60,8 +63,9 @@ async function startApp() {
                 })
             }
 
-        })
-        await mongoose.connect(DB_URL)
+        });
+
+
         app.listen(PORT, ()=> console.log(`Сервер запустился на ${PORT} порту`))
     }
     catch (err) {
