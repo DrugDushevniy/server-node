@@ -16,11 +16,13 @@ const PORT = 5000;
 app.use(cors({
     credentials: true,
     origin: "http://1253919-ca24285.tw1.ru/"
-}));
+}))
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*')})
 app.use(express.json())
 app.use(cookieParser())
-app.use("/auth", authRouter);
-app.use(errorMiddleware);
+app.use("/auth", authRouter)
+app.use(errorMiddleware)
 
 
 async function startApp() {
