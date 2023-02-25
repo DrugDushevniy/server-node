@@ -1,3 +1,4 @@
 module.exports = {
-    secret: "SECRET_KEY_RANDOM"
+    ACCESS_SECRET: "bambosChatForOur",
+    REFRESH_SECRET: "VeryImportantSecretData"
 }
