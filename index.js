@@ -19,10 +19,6 @@ app.use(cors({
 }));
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-    credentials: true,
-    origin: "http://1253919-ca24285.tw1.ru/"
-}));
 app.use("/auth", authRouter);
 app.use(errorMiddleware);
 
