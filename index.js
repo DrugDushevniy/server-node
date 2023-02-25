@@ -17,9 +17,7 @@ app.use(cors({
     credentials: true,
     origin: "http://1253919-ca24285.tw1.ru"
 }))
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,Allow,Access-Control-Allow-Origin');;
-    next()})
+
 app.use(express.json())
 app.use(cookieParser())
 app.use("/auth", authRouter)
