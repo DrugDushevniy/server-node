@@ -18,7 +18,7 @@ app.use(cors({
     origin: "http://1253919-ca24285.tw1.ru/"
 }))
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://1253919-ca24285.tw1.ru/')
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     next()})
 app.use(express.json())
 app.use(cookieParser())
