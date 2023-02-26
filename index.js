@@ -1,3 +1,4 @@
+const cookieParser = require('cookie-parser')n
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
@@ -6,7 +7,6 @@ const WSserver = require('express-ws')(app)
 const ChatController = require('./ChatController')
 const aWss = WSserver.getWss()
 const authRouter = require('./authRouter.js')
-const cookieParser = require('cookie-parser')
 const errorMiddleware = require('./middlewarez/errorMiddleware')
 
 const DB_URL = "mongodb+srv://user:user@cluster0.tpt6jpb.mongodb.net/?retryWrites=true&w=majority";
