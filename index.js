@@ -13,14 +13,13 @@ const DB_URL = "mongodb+srv://user:user@cluster0.tpt6jpb.mongodb.net/?retryWrite
 mongoose.set('strictQuery', true);
 const PORT = 5000;
 
+app.use(cookieParser())
 app.use(cors({
     credentials: true,
     origin: ["http://1253919-ca24285.tw1.ru", "http://localhost:3000"]
 
 }))
-
 app.use(express.json())
-app.use(cookieParser())
 app.use("/auth", authRouter)
 app.use(errorMiddleware)
 
