@@ -58,7 +58,8 @@ class UserService {
         const userData = TokenService.validateRefreshToken(refreshToken)
         const tokenFromDb = await TokenService.findToken(refreshToken)
         if (!userData || !tokenFromDb) {
-            throw ApiError.Unauthorized()
+            console.log(`userData(VALID TOKEN;${userData}, TOKENFROMDB V BAZE: ${tokenFromDb}`)
+            throw ApiError.Unauthorized('Не прошел проверку на валидность ')
         }
         const user = await User.findById(userData.id)
         const userDto = new UserDTO(user); // _id, username, roles
