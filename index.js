@@ -16,7 +16,7 @@ const PORT = 5000;
 app.use(cookieParser())
 app.use(cors({
     credentials: true,
-    origin: "http://localhost:3000"
+    origin: ["http://1253919-ca24285.tw1.ru", "http://localhost:3000", "http://87.249.44.57"]
 
 }))
 app.use(express.json())
