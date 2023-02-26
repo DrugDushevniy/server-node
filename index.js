@@ -15,7 +15,7 @@ const PORT = 5000;
 
 app.use(cors({
     credentials: true,
-    origin: "http://1253919-ca24285.tw1.ru"
+    origin: "*"
 }))
 
 app.use(express.json())
