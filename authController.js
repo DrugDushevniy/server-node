@@ -27,7 +27,7 @@ class authController {
             }
             const {username, password} = req.body;
             const userData = await userService.login(username,password);
-            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30*24*60*60*1000, httpOnly: true, sameSite: 'none', secure: true})
+            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30*24*60*60*1000, httpOnly: true, sameSite: 'Strict'})
             console.log('res.cookie: ', req.cookies)
             return res.json(userData)
         }catch (e) {
@@ -51,7 +51,7 @@ class authController {
             console.log(`refreshToken Auth Controller (())`, refreshToken)
             const userData = await userService.refresh(refreshToken)
             console.log(`USERDATA(НОВЫЕ ТОКЕНЫ) Auth Controller (())`, userData)
-            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30*24*60*60*1000, httpOnly: true, sameSite: 'none', secure: true})
+            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30*24*60*60*1000, httpOnly: true, sameSite: 'Strict'})
             return res.json(userData)
         }
         catch (e) {
