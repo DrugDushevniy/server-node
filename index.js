@@ -27,7 +27,7 @@ app.use(errorMiddleware)
 async function startApp() {
     try {
         await mongoose.connect(DB_URL);
-        app.ws('/ws', (ws, req) =>{
+        app.ws('/api/ws', (ws, req) =>{
             ws.on('message', (msg)=>{
                 try {
                     let readyMessage = JSON.parse(msg)
