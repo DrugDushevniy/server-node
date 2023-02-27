@@ -16,7 +16,7 @@ const PORT = 5000;
 app.use(cookieParser())
 app.use(cors({
     credentials: true,
-    origin: "http://87.249.44.57"
+    origin: ["http://87.249.44.57","http://1253919-ca24285.tw1.ru/chat"]
 
 }))
 app.use(express.json())
